@@ -1,0 +1,21 @@
+# Instrucciones Importantes
+
+1. seguir la normativa
+2. toda la memoria en el heap deberá liberarse adecuadamente cuando sea necesario
+3. No se permitirán leaks de memoria.
+4. 
+Makefile
+- 3 flags
+- NORMA $(NAME), all, clean, fclean, re.
+- agregar una REGLA BONUS ha de estar en el MAKEFILE
+- añadirás todos los headers, librerías o funciones que estén prohibidas en la parte principal del proyecto.
+- Los bonus deben estar en archivos distintos _bonus.{c/h}. 
+- La parte obligatoria y los bonus se evalúan por separado. 
+- 
+
+# Archivos a entregar:
+
+- makefile
+- libft.h
+- *.c
+
