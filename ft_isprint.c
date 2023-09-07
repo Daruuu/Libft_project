@@ -6,9 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 20:29:59 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/05 20:31:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/07 00:11:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

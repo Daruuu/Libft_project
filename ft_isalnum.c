@@ -6,9 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:59:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/05 20:08:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/07 00:09:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	isalnum(int c)
 {
