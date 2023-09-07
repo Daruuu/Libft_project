@@ -22,4 +22,5 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *dest, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
+
 #endif

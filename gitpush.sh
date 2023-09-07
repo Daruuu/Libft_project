@@ -1,11 +1,9 @@
 #script to automate my git push in every git repository
-git status
+git status -- porcelain
 git add .
-  echo "Enter the commit message:"
-	read -r COMMITMESSAGE
+	read -p "Enter the commit message:" COMMITMESSAGE
 git commit -m "$COMMITMESSAGE"
-	echo  "Enter the name of the branch (main):"
-	read -r BRANCH
+	read -p "Enter the name of the branch (main):" BRANCH
 git push origin "$BRANCH"
-	echo "<<<<<<<<<<<<<<<REPOSITORY UPDATED SUCCESFUL!!>>>>>>>>>>>>>>>"
-git log -n 3
+	echo "<<<<<<<<<<<<<<<REPOSITORY UPDATED SUCCESSFUL!!>>>>>>>>>>>>>>>"
+git log -n 2
