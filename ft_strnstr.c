@@ -10,14 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-localiza la 1ra aparacion de needle en haystack y recorre el puntero haystack hasta el maximo que es el (len) 
-*/
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-#include <stddef.h>
+/* buscar una subcadena (needle) dentro de una cadena más grande (haystack)
+ con un límite de longitud (len)*/
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -27,11 +21,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (!*needle)
 		return ((char *)haystack);
 	i = 0;
-	j = 0;
-
-	while (haystack[i] != '\0' && i < len && len != 0)
+	while (haystack[i] != '\0' && i < len)
 	{
-		while (needle[j] == haystack[i + j])
+        j = 0;
+		while (needle[j] == haystack[i + j] && (i + j) < len)
 		{
 			if (needle[j + 1] == '\0')
 				return ((char *)&haystack[i]);
@@ -47,21 +40,13 @@ int	main()
 	const char *largestring = "Foo Bar Baz";
     const char *smallstring = "Bar";
 	size_t len;
-	len = 4;
-    char *ptr;
+    len = 4;
+    char *result= ft_strnstr(largestring, smallstring, len);
 
-	/*const char *largestring1 = "Foo Bar Baz";
-    const char *smallstring1 = "Bar";
-	size_t len1;
-	len1 = 4;
-    char *ptr1;
-	*/
-
-    ptr = ft_strnstr(largestring, smallstring, len);
-	printf("%d\n", ptr);
-/*
-    ptr1 = strnstr(largestring1, smallstring1, len1);
-	printf("%d\n", ptr1);
-*/
+    printf("%s\n", result);
+    if (result != NULL)
+        printf("substring found: %s\n", result);
+    else
+        printf("substring no found");
 	return (0);
 }

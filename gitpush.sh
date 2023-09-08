@@ -1,5 +1,5 @@
 #script to automate my git push in every git repository
-git status -- porcelain
+git status --porcelain
 git add .
 	read -p "Enter the commit message:" COMMITMESSAGE
 git commit -m "$COMMITMESSAGE"
