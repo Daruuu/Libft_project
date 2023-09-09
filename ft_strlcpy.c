@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 19:44:09 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/08 21:39:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/09 23:29:18 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,17 @@
 size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
     size_t  i;
-    size_t  src_size;
+    size_t  src_len;
 
-    if (!(dst || src))
-        return (0);
-    src_size = 0;
-
-    while (src [src_size])
-        src_size++;
-    i = 0;
+    src_len = ft_strlen(src);
+    if (dstsize < 1)
+        return (src_len);
+    i = 0; 
     while (src[i] != '\0' && i < (dstsize - 1))
     {
         dst[i] = src[i];
         i++;
     }
     dst[i] = '\0';
-    return (src_size);
+    return (src_len);
 }
-/*int main()
-{
-    char    *buffer[19];
-    char    *src;
-
-    src = "hello world my friend";
-    len = 9;
-    size_t  result;
-
-    //result = ft_strlcpy((char *)buffer, src, len);
-    result = strlcpy((char *)buffer, src, len);
-    printf("%d",(int) result);
-
-    return (0);
-}*/

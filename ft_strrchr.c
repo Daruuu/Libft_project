@@ -6,43 +6,29 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 19:47:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/07 22:25:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/10 00:34:35 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+/*devuelve un puntero a la última ocurrencia del carácter c en la cadena s.
+	o NULL si el carácter no se ha encontrado*/
+
+char	*ft_strrchr(const char *s, int c)
 {
-	char	find;
+	char	find_c;
 	int		i;
-	int		len;
+	int		len_s;
 
-	find = (char)c;
-	len = 0;
-	while (s[len])
-		len++;
-	i = len;
-	while (s[i] > 0)
+	find_c = c;
+	i = 0;
+	len_s = ft_strlen(s);
+	while (len_s >= 0)
 	{
-		if (s[i] == find)
-			return ((char *) &s[i]);
-		i--;
+		if (s[len_s] == find_c)
+			return ((char *)&s[len_s]);
+		len_s--;
 	}
-	if (s[i] == find)
-		return ((char *)&s[i]);
-	return (0);
+	return (NULL);
 }
-/*int main()
-{
-    const char *s = "hello world";
-    const char *ptr;
-	int	ch;
-
-    //ch = 'o';
-    ch = 111;
-
-    //s = "hello world";
-    ptr = (char *) ft_strrchr(s, ch);
-    printf("first occurrence of the '%c' in '%s' string is: '%s'", ch, s, ptr);
-}*/
