@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 01:01:34 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/10 02:59:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/10 04:02:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	ch_dst = (char *) dst;
 	ch_src = (char *) src;
 	if (!dst && !src)
-		return(0);
+		return (0);
 	i = 0;
 	while (i < n)
 	{

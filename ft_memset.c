@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 21:16:26 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/07 00:25:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/10 03:57:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,6 @@ void	*ft_memset(void *dest, int c, size_t len)
 	}
 	return ((void *) ptr_dest);
 }
-/*int	main()
-{
-	void	*str;
-	int	c;
-	size_t	n;
-
-	c = 96;
-	n = 5;
-	str = "hello world!";
-	//ft_memset(str, c, n);
-	
-	printf("%s", ft_memset(str, c, n));
-
-	return (0);
-}*/
 /*c es la variable por la que vamos a sustituir en (dest) tantas veces como (n)
 tengamos
 retornamos el puntero dest actualizado con los valores c (n veces)*/
