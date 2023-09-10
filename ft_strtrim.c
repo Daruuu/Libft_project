@@ -71,6 +71,7 @@ int main()
 }
 
 
+/*
 char    *ft_strtrim(char const *s1, char const *set)
 {
     size_t  size_s1;
@@ -82,7 +83,7 @@ char    *ft_strtrim(char const *s1, char const *set)
     if (!s1 || !set)
         return (NULL);
     size_s1 = ft_strlen(s1);
-
+    i = 0;
     while (s1[i] != '\0' && ft_strchr(set, s1[i]))
         i++;
     while (size_s1 > i && '\0' && ft_strchr(set, s1[size_s1 - 1]))
@@ -91,7 +92,8 @@ char    *ft_strtrim(char const *s1, char const *set)
     ptr = malloc(sizeof(char) * s1[size_s1 - counter]);
     if (!ptr)
         return (NULL);
-    
+
 
     return (0);
 }
+*/

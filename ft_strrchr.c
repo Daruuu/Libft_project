@@ -18,11 +18,9 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	char	find_c;
-	int		i;
 	int		len_s;
 
 	find_c = c;
-	i = 0;
 	len_s = ft_strlen(s);
 	while (len_s >= 0)
 	{

@@ -6,67 +6,62 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 07:34:50 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/10 11:27:09 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/11 00:13:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-/*char    *ft_substr(char const *s, unsigned int start, size_t len)
-{
-    size_t  i;
-    size_t  len_substr;
-    char    *substr;
-
-    len_substr = len - (size_t)start;
-    substr = malloc(sizeof(char *) * len_substr + 1);
-    if (substr == NULL)
-        return (0);
-    i = 0;
-    while (i < len_substr)
-    {
-        substr[i] = s[start];
-        i++;
-        start++;
-    }
-    substr[i] = '\0';
-    return (substr);
-}*/
-int ft_strlen1(char const *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return(i);
-}
-
 char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
     size_t  i;
-    size_t  j;
+    size_t  len_s;
+    char    *substr;
+
+    len_s = 0;
+    while (s[len_s])
+        len_s++;
+    /*ajustamos la len para que no haya desbordamiento */
+    if (len > len_s - start)
+        len = len_s - start;
+    substr = malloc(sizeof(char) * (len + 1));
+    if (!substr)
+        return (NULL);
+    i = 0;
+    while (i < len)
+    {
+        substr[i] = s[start + i];
+        i++;
+    }
+    substr[len] = '\0';
+    return (substr);
+}
+/*
+char    *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    size_t  i;
     size_t  len_s;
     char    *ptr;
 
-    len_s = 0;
+    len_s = ft_strlen1(s);
     if (!s)
         return (0);
-    len_s = ft_strlen1(s);
-    if (start >= len_s)
-        return (NULL);
+    if (len_s < start)
+        len = 0;
+    if ((size_t)ft_strlen1(s + start) < len)
+        len = ft_strlen1(s + start);
     ptr = (char *)malloc(sizeof(char) * (len + 1));
     if (!ptr)
         return (NULL);
-    i = start;
-    j = 0;
-    while (s[i] != '\0' && j < len)
+    i = 0;
+    while(ptr[i] != '\0' && i < (len + 1))
     {
-        ptr[j] = s[i];
+        ptr[i] = s[i];
         i++;
-        j++;
     }
-    ptr[j] = '\0';
+    ptr[i] = '\0';
+    //ft_strlcpy(ptr, s + start, len + 1);
     return (ptr);
 }
+*/
