@@ -6,14 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:31:24 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/10 23:35:49 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:46:15 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 
-static  int ft_strlen_const(char const *str)
+static int	ft_strlen_const(char const *str)
 {
 	int	i;
 
