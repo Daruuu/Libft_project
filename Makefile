@@ -1,13 +1,11 @@
-NAME = libft.a
-
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
 
 LIB = ar rc
 
-CFLAGS = -Wall -Wextra -Werror
-
+NAME = libft.a
 HEADER = libft.h
-RM = rm -f
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	   ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
@@ -24,18 +22,17 @@ OBJS = $(SRCS:.c=.o)
 %.o:%.c 	$(HEADER) Makefile
 			$(CC) $(CFLAGS) -c $< -o $@
 
-# Mis metodos
-all: $(NAME)
+all: 		$(NAME)
 
-$(NAME): $(OBJS)
-	$(LIB) $(NAME) $(OBJS)
+$(NAME): 	$(OBJS)
+			$(LIB) $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS) 
+			$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean: 	clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY = all clean fclean re
+.PHONY: all clean fclean re
