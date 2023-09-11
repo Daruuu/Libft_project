@@ -6,13 +6,15 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/11 18:38:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:42:49 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stddef.h> 
+# include <stdlib.h> 
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:31:05 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/10 13:34:51 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:01:15 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int ft_strlen1(char *str)
+/*static int  ft_strlen1(char *str)
 {
     int i;
     i = 0;
@@ -22,7 +22,7 @@ int ft_strlen1(char *str)
         i++;
     return (0);
 }
-
+*/
 /*char    *ft_strtrim(char const *s1, char const *set)
 {
     size_t  len_s1;
