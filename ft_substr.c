@@ -6,36 +6,42 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:03:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/11 21:49:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/12 00:42:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int  ft_strlen_n(char *str)
+static int	ft_strlen_n(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
 static char	*ft_strdup_n(const char *s1)
 {
 	unsigned int	size_s1;
 	unsigned int	i;
+	char			*ptr;
 
 	size_s1 = ft_strlen_n((char *)s1);
 	if (!s1)
 		return (NULL);
-
-
-	
-
-
-	return (0);
+	ptr = malloc(sizeof(char) * (size_s1 + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -48,7 +54,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start > size_s)
-		return (ft_strdup(""));
+		return (ft_strdup_n(""));
 	size_s -= start;
 	if (size_s < len)
 		len = size_s;

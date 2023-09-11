@@ -6,11 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:31:29 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/11 17:44:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:20:50 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h" 
 
 static	int	ft_new_strlen(const char *str)
 {
@@ -24,20 +24,22 @@ static	int	ft_new_strlen(const char *str)
 
 char	*ft_strdup(const char *s1)
 {
-	int				i;
-	unsigned char	size_s1;
-	char			*dup;
+	unsigned int	size_s1;
+	unsigned int	i;
+	char			*ptr;
 
-	i = 0;
-	size_s1 = ft_new_strlen(s1);
-	dup = (char *)malloc(sizeof(char) * (size_s1 + 1));
-	if (dup == NULL)
+	size_s1 = ft_new_strlen((char *)s1);
+	if (!s1)
 		return (NULL);
+	ptr = malloc(sizeof(char) * (size_s1 + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
 	while (s1[i] != '\0')
 	{
-		dup[i] = s1[i];
+		ptr[i] = s1[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	ptr[i] = '\0';
+	return (ptr);
 }
