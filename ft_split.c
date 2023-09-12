@@ -6,12 +6,14 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/12 15:15:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:18:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
+/*
 static int ft_strlen_new(char *str)
 {
     int i;
@@ -21,43 +23,51 @@ static int ft_strlen_new(char *str)
         i++;
     return (i);
 }
-
-static size_t   ft_count_characters(char const *s, char c)
+*/
+/* dado un puntero busco 'c' y si la encuentro guardo la posicion total antes
+ * de encontrar el caracter 'c' 
+*/
+static size_t   ft_count_chars(char const *s, char c)
 {
-    size_t  i;
     size_t  counter;
     
-    i = 0;
     counter = 0;
-    while (s[i] != '\0')
+    while (*s)
     {
-        if (s[i] == c)
+        while (*s == c)
+            s++;
+        if (*s)
             counter++;
-        i++;
+        while (*s && *s != c)
+            s++;
     }
-    if (*s != c)
-        return (0);
     return (counter);
 }
-
+/*
 char    **ft_split(char const *s, char c)
 {
     size_t  size_s;
+    size_t  i;
 
     size_s = ft_strlen_new((char *)s);
     if (!s || !c)
         return (0);
+    while (i < size_s - 1)
+    {
 
+    }
     return (0);
 }
-
+*/
 int main()
 {
     char const  *ss;
     char find;
 
-    ss = "hello!zzzzzzzzz";
-    find = 'z';
+    ss = "      c   ";
+    find = ' ';
+    printf("%d\n",(int)ft_count_chars(ss, find));
+
 
     return (0);
 }
