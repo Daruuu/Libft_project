@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/10 09:55:28 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:15:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,22 @@ static int ft_strlen_new(char *str)
     return (i);
 }
 
-static size_t   ft_countCharacters(char const *s, char c)
+static size_t   ft_count_characters(char const *s, char c)
 {
-
-    return ();
+    size_t  i;
+    size_t  counter;
+    
+    i = 0;
+    counter = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == c)
+            counter++;
+        i++;
+    }
+    if (*s != c)
+        return (0);
+    return (counter);
 }
 
 char    **ft_split(char const *s, char c)
