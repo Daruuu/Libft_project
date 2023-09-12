@@ -6,14 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/12 21:18:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:40:30 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-/*
 static int ft_strlen_new(char *str)
 {
     int i;
@@ -23,7 +22,7 @@ static int ft_strlen_new(char *str)
         i++;
     return (i);
 }
-*/
+
 /* dado un puntero busco 'c' y si la encuentro guardo la posicion total antes
  * de encontrar el caracter 'c' 
 */
@@ -43,22 +42,29 @@ static size_t   ft_count_chars(char const *s, char c)
     }
     return (counter);
 }
-/*
+
 char    **ft_split(char const *s, char c)
 {
-    size_t  size_s;
-    size_t  i;
+    size_t      size_s;
+    size_t      i;
+    size_t      index;
+    char        **table;
 
     size_s = ft_strlen_new((char *)s);
     if (!s || !c)
         return (0);
-    while (i < size_s - 1)
+    table = malloc(sizeof(char *) * (ft_count_chars(s, c) + 1));
+    if (!table)
+        return (NULL);
+    while (i < (size_s - 1))
     {
+        if (s[i] != c)
+            
 
     }
     return (0);
 }
-*/
+
 int main()
 {
     char const  *ss;
