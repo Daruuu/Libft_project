@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/12 22:40:30 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:01:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static size_t   ft_count_chars(char const *s, char c)
     return (counter);
 }
 
-char    **ft_split(char const *s, char c)
+/*char    **ft_split(char const *s, char c)
 {
     size_t      size_s;
     size_t      i;
@@ -64,7 +64,7 @@ char    **ft_split(char const *s, char c)
     }
     return (0);
 }
-
+*/
 int main()
 {
     char const  *ss;
