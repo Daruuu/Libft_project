@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/14 21:56:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/15 00:56:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,65 @@
  * de encontrar el caracter 'c'
  */
 
-
-static int  ft_count_words(char const *s, char c)
+static size_t   ft_count_words(char const *s, char c)
 {
-    size_t  count_words;
-    int i;
+    size_t  count;
 
-    if (!s || !c)
+    if (!*s)
         return (0);
-    i = 0;
-    count_words = 0;
-    while (s[i])
+    count= 0;
+    while (*s)
     {
-        while (s[i] == c)
-            i++;
-        if (s[i])
-            count_words++;
-        while (s[i] && s[i] != c)
-            i++;
-        i++;
+        while (*s == c)
+            s++;
+        if (*s)
+            count++;
+        while (*s != c && *s)
+            s++;
     }
-    return (count_words);
+    return (count);
 }
+/* 1. creamos un puntero doble que es donde vamos almacenar 
+ * el array de arrys como returno de funcion
+ * 2. crear un malloc y comprobar que no sea NULL
+ * 3. iterar por nuestro array que nos dan de parametro
+ * 4. creamos un while donde iteramos por nuestro puntero "s"
+ * 5. creamos un nuevo while, el cual comprobar que nuestro char "c" 
+ * existe en nuestro puntero "*s"
+ * 6. mientras se cumplan estas 2 condiciones, avanzara el puntero "s"
+ * 7. creamos un if en cual mientras puntero exista entara en el.
+ * 8. utilizaremos la funcion "ft_strchr" (la cual busca un caracter
+ * dentro de un puntero y retornar su posicion en el puntero.)
+ * 9. cada vez que NO encuentre el caracter en el puntero, creara
+ * un "strlen()" del puntero "s"(dado que no ha encontrado coincidencia.)
+ * 10. creamos un else en cual actualizaremos en word_len usando la
+ * la funcion ft_strchr() y le restaremos en puntero "s"
+ * 11. rellenar el doble puntero en la posicion i++ y igualarlo
+ * al "ft_substr""
+ *
 
+*/
+
+char    **ft_split(char const *s, char c)
+{
+    char    **table;
+    size_t  word_len;
+    int     i;
+
+   if (!(table ==(char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))));
+    
+
+
+
+}
 int main()
 {
     char    *str;
 
     str = "  hel lo wor /\0ld";
-    //str = "^^^^1 ^^^a, *%/n";
-
-    int countwords = ft_count_words(str, 33);
-
+    //str = "fffna, *%/n";
+    int countwords =(int) ft_count_words(str, 33);
     printf("%d", countwords);
-
     return (0);
 }
 
