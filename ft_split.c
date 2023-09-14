@@ -6,47 +6,67 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 09:54:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/13 18:01:10 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:56:57 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int ft_strlen_new(char *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
-}
-
 /* dado un puntero busco 'c' y si la encuentro guardo la posicion total antes
  * de encontrar el caracter 'c'
  */
-/*
-static size_t   ft_count_chars(char const *s, char c)
+
+
+static int  ft_count_words(char const *s, char c)
 {
-    size_t  counter;
+    size_t  count_words;
+    int i;
 
     if (!s || !c)
         return (0);
-    counter = 0;
-    while (*s)
+    i = 0;
+    count_words = 0;
+    while (s[i])
     {
-        while (*s == c)
-            s++;
-        if (*s)
-            counter++;
-        while (*s && *s != c)
-            s++;
+        while (s[i] == c)
+            i++;
+        if (s[i])
+            count_words++;
+        while (s[i] && s[i] != c)
+            i++;
+        i++;
     }
-    return (counter);
+    return (count_words);
 }
-*/
 
+int main()
+{
+    char    *str;
+
+    str = "  hel lo wor /\0ld";
+    //str = "^^^^1 ^^^a, *%/n";
+
+    int countwords = ft_count_words(str, 33);
+
+    printf("%d", countwords);
+
+    return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 static size_t ft_count_words(char const *s, char c)
 {
     int counter;
@@ -66,6 +86,24 @@ static size_t ft_count_words(char const *s, char c)
     return (counter);
 }
 
+static size_t   ft_count_chars(char const *s, char c)
+{
+    size_t  counter;
+
+    if (!s || !c)
+        return (0);
+    counter = 0;
+    while (*s)
+    {
+        while (*s == c)
+            s++;
+        if (*s)
+            counter++;
+        while (*s && *s != c)
+            s++;
+    }
+    return (counter);
+}
 static char *ft_strndup_split(char *str, size_t size)
 {
     size_t i;
@@ -136,3 +174,4 @@ int main()
 
     return (0);
 }
+*/
