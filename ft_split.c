@@ -24,12 +24,35 @@ static int ft_strlen_new(char *str)
 }
 
 /* dado un puntero busco 'c' y si la encuentro guardo la posicion total antes
- * de encontrar el caracter 'c' 
-*/
+ * de encontrar el caracter 'c'
+ */
+/*
 static size_t   ft_count_chars(char const *s, char c)
 {
     size_t  counter;
-    
+
+    if (!s || !c)
+        return (0);
+    counter = 0;
+    while (*s)
+    {
+        while (*s == c)
+            s++;
+        if (*s)
+            counter++;
+        while (*s && *s != c)
+            s++;
+    }
+    return (counter);
+}
+*/
+
+static size_t ft_count_words(char const *s, char c)
+{
+    int counter;
+
+    if (!s || !c)
+        return (0);
     counter = 0;
     while (*s)
     {
@@ -43,37 +66,73 @@ static size_t   ft_count_chars(char const *s, char c)
     return (counter);
 }
 
-/*char    **ft_split(char const *s, char c)
+static char *ft_strndup_split(char *str, size_t size)
 {
-    size_t      size_s;
-    size_t      i;
-    size_t      index;
-    char        **table;
+    size_t i;
+    char *dup;
 
-    size_s = ft_strlen_new((char *)s);
+    if (!str)
+        return (0);
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    dup = malloc(sizeof(char) * (i + 1));
+    if (!dup)
+        return (NULL);
+    i = 0;
+    while (str[i] != '\0')
+    {
+        dup[i] = str[i];
+        i++;
+    }
+    dup[i] = '\0';
+    return (dup);
+}
+
+char **ft_split(char const *s, char c)
+{
+    size_t i;
+    const char *start;
+    char **table;
+
     if (!s || !c)
         return (0);
-    table = malloc(sizeof(char *) * (ft_count_chars(s, c) + 1));
-    if (!table)
-        return (NULL);
-    while (i < (size_s - 1))
+    if (!(table == (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
+        ;
+    return (NULL);
+    i = 0;
+    while (*s)
     {
         if (s[i] != c)
-            
-
+        {
+            start = s;
+            while (*s && *s != c)
+                s++;
+            table[i++] = ft_strndup_split(start, s - start);
+            if (!table[i - 1])
+            {
+                while (i > 0)
+                    free(table[i]);
+                i--;
+            }
+            free(table);
+            return (NULL);
+        }
+        else
+            s++;
     }
-    return (0);
+    table [i] = '\0';
+    return (table);
 }
-*/
+
 int main()
 {
-    char const  *ss;
+    char const *ss;
     char find;
 
     ss = "      c   ";
     find = ' ';
-    printf("%d\n",(int)ft_count_chars(ss, find));
-
+    printf("%d\n", (int)ft_count_chars(ss, find));
 
     return (0);
 }
