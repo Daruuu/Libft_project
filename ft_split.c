@@ -17,13 +17,13 @@
  * de encontrar el caracter 'c'
  */
 
-static size_t   ft_count_words(char const *s, char c)
+static int ft_count_w(char const *s, char c)
 {
-    size_t  count;
+    size_t count;
 
     if (!*s)
         return (0);
-    count= 0;
+    count = 0;
     while (*s)
     {
         while (*s == c)
@@ -35,12 +35,12 @@ static size_t   ft_count_words(char const *s, char c)
     }
     return (count);
 }
-/* 1. creamos un puntero doble que es donde vamos almacenar 
+/* 1. creamos un puntero doble que es donde vamos almacenar
  * el array de arrys como returno de funcion
  * 2. crear un malloc y comprobar que no sea NULL
  * 3. iterar por nuestro array que nos dan de parametro
  * 4. creamos un while donde iteramos por nuestro puntero "s"
- * 5. creamos un nuevo while, el cual comprobar que nuestro char "c" 
+ * 5. creamos un nuevo while, el cual comprobar que nuestro char "c"
  * existe en nuestro puntero "*s"
  * 6. mientras se cumplan estas 2 condiciones, avanzara el puntero "s"
  * 7. creamos un if en cual mientras puntero exista entara en el.
@@ -52,44 +52,51 @@ static size_t   ft_count_words(char const *s, char c)
  * la funcion ft_strchr() y le restaremos en puntero "s"
  * 11. rellenar el doble puntero en la posicion i++ y igualarlo
  * al "ft_substr""
- *
+ */
 
-*/
-
-char    **ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
     char    **table;
-    size_t  word_len;
+    size_t  size_word;
     int     i;
 
-   if (!(table ==(char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))));
-    
-
-
-
+    if (!(table == (char **)malloc(sizeof(char *) * (ft_count_w(s, c) + 1)))));
+        return (NULL);
+    i = 0;
+    while (*s)
+    {
+        while (*s == c && *s)
+            s++;
+        if (*s)
+        // return un puntero a la 1r character encontrado .
+        {
+            if (!ft_strchr(s, c))
+                size_word = ft_strlen(s);
+            else
+                size_word = ft_strchr(s, c) - s;
+            table[i++] = ft_substr(s, 0, size_word);
+            s = s + size_word;
+        }
+    }
+    table[i] = '\0';
+    return (table);
 }
 int main()
 {
-    char    *str;
+    char *str;
 
-    str = "  hel lo wor /\0ld";
-    //str = "fffna, *%/n";
-    int countwords =(int) ft_count_words(str, 33);
+    str = "hel lo wor /\0ld";
+    str = "aaaccssxxarqwer";
+    char c;
+
+    c = ' ';
+    c = 'a';
+
+    // str = "fffna, *%/n";
+    int countwords = ft_count_words(str, 33);
     printf("%d", countwords);
     return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 static size_t ft_count_words(char const *s, char c)
