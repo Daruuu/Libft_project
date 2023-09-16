@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 21:27:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/15 23:12:17 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/16 14:46:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ static int	ft_count_words(char const *s, char c)
 		while (*s == c)
 			s++;
 		if (*s)
+		{
 			count++;
-		while (*s && *s != c)
-			s++;
+			while (*s && *s != c)
+				s++;
+		}
 	}
 	return (count);
 }
@@ -39,7 +41,7 @@ char	**ft_split(char const *s, char c)
 
 	table = (char **)malloc((sizeof(char *) * (ft_count_words(s, c) + 1)));
 	if (!table || !s)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (*s)
 	{
@@ -51,10 +53,18 @@ char	**ft_split(char const *s, char c)
 				size_word = ft_strlen(s);
 			else
 				size_word = ft_strchr(s, c) - s;
-			table[i++] = ft_substr(s, 0, size_word);
+			table[i] = ft_substr(s, 0, size_word);
 			s += size_word;
+			i++;
 		}
 	}
 	table[i] = '\0';
 	return (table);
+}
+
+int	main()
+{
+
+
+	return (0);
 }
