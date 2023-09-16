@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 21:27:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/16 14:46:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:34:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,31 @@ char	**ft_split(char const *s, char c)
 			i++;
 		}
 	}
-	table[i] = '\0';
+	table[i] = NULL;
 	return (table);
 }
-
+/*
 int	main()
 {
+	char		**table;
+	char const	*str;
+	char		c;
+	int			len_str;
+	int			i;
 
+	str = "Lorem Ipsum has been the ";
+	c = ' ';
+	len_str = ft_strlen(str);
+	table = ft_split(str, c);
 
+	i = 0;
+	while (table[i])
+	{
+		printf("%s\n", table[i]);
+		free(table[i]);
+		i++;
+	}
+	free(table);
 	return (0);
 }
+*/
