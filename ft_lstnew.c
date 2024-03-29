@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 14:31:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/03/29 22:40:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/03/29 23:06:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,19 @@ t_list  *ft_lstnew(void *content)
     return (new);
 }
 
+/*
 int main()
 {
     char    ptr[20] = "hello world";
     t_list  *new_listReturn;
 
     new_listReturn = ft_lstnew(ptr);
-    if (new_list != NULL)
-        printf("content of list:\n%s", (char *)new_listR->content);
+    if (new_listReturn != NULL)
+        printf("content of list:\n%s", (char *)new_listReturn->content);
     else
         printf("error al crear lista");
-    free(new_list);
+    free(new_listReturn);
 
     return (0);
 }
+*/
