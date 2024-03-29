@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/23 15:13:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/03/29 22:37:13 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct  s_list
 {
     void            *content;
     struct s_list   *next;
-}                   t_list;
+}				t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
