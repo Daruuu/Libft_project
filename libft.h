@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/03/29 22:37:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/02 22:44:49 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct  s_list
 {
     void            *content;
     struct s_list   *next;
-}				t_list;
+}           t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -67,5 +67,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 /*BONUS*/
 t_list  *ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif

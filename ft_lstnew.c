@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 14:31:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/03/29 23:06:20 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:33:38 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_list  *ft_lstnew(void *content)
 
     return (new);
 }
-
 /*
 int main()
 {
