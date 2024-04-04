@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/02 22:44:49 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:16:39 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	ft_putnbr_fd(int n, int fd);
 /*BONUS*/
 t_list  *ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void    ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
