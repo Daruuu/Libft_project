@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-ARC = ar rcs
+LIB = ar rc
 
 NAME = libft.a
 HEADER = libft.h
@@ -14,16 +14,16 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	   	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 	   	ft_atoi.c \
 		ft_strdup.c ft_calloc.c \
-	   	ft_substr.c ft_strjoin.c ft_strtrim.c \
-		ft_strmapi.c ft_striteri.c \
+	   	ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
+		ft_itoa.c ft_strmapi.c ft_striteri.c \
 	   	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-	   	ft_lstnew.c \
+	   	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c
 
-SRCS_BONUS = 
+B_SRCS =	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+			ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
-
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+BONUS_OBJS = $(B_SRCS:.c=.o)
 
 # Metodo Implicito
 %.o:%.c 	$(HEADER) Makefile
@@ -32,18 +32,17 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 all: 		$(NAME)
 
 $(NAME): 	$(OBJS)
-			$(ARC) $(NAME) $(OBJS)
+			$(LIB) $(NAME) $(OBJS)
 
-bonus:		$(OBJS) $(OBJS_BONUS)  $(HEADER)
-			$(ARC) $(NAME) $(OBJS) $(OBJS_BONUS)
+bonus:		$(OBJS) $(BONUS_OBJS)
+			$(LIB) $(NAME) $(OBJS)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: 	clean
 			$(RM) $(NAME)
-			$(RM) $(bonus)
 
 re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
