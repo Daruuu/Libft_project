@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/06 10:40:26 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:56:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *));
 void    ft_lstclear(t_list **lst, void (*del)(void *));
 void    ft_lstiter(t_list *lst, void (*f)(void *));
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif
