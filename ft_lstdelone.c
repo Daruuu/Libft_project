@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/06 20:39:09 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:00:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *))
         free(lst);
     }
 }
-
 /*
 void    del(void *content)
 {
