@@ -6,26 +6,27 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/09 19:00:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:12:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-    if (lst)
-    {
-        del(lst->content);
-        free(lst);
-    }
-}
-/*
 void    del(void *content)
 {
     free(content);
 }
 
+void    ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+    if (!lst && !del)
+    {
+        del(lst->content);
+        free(lst);
+    }
+}
+
+/*
 int main()
 {
     t_list  *lista;
@@ -33,6 +34,7 @@ int main()
     t_list  *node02;
     t_list  *node03;
     t_list  *node04;
+    t_list  *node05;
 
     lista = NULL; 
 
@@ -56,8 +58,18 @@ int main()
     node04->next = NULL;
     node03->next = node04;
 
+    node05 = (t_list *) malloc(sizeof(t_list));
+    node05->content = "nuevo contenido";
+    node05->next = NULL;
+    node04->next = node05;
+
+    printf("size of lista: %d \n", ft_lstsize(lista));
+
+    printf("execute ft_lstdelone\n");
     ft_lstdelone(node02, del);
+
+    printf("size of lista: %d \n", ft_lstsize(lista));
 
     return (0);
 }
-*/
+    */
