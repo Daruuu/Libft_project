@@ -14,14 +14,15 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!lst)
+	if (!lst || !new)
 		return ;
 	if (*lst != NULL)
 	{
 		new->next = *lst;
 		*lst = new;
 	}
-	*lst = new;
+	else
+		*lst = new;
 }
 
 int	main()
@@ -85,7 +86,7 @@ int	main()
 
 	while (current != NULL)
 	{
-		printf("node [%d] -> %s\n", i, current->content);
+		printf("node [%d] -> %s\n", i, (char *) current->content);
 		temp = current;
 		current = current->next;
 		free(temp);
@@ -103,11 +104,13 @@ int	main()
 	i = 0;
 	while (current != NULL)
 	{
-		printf("node [%d] -> %s\n", i, current->content);
+		//printf("node [%d] -> %s\n", i, current->content);
+		printf("node [%d] -> %s\n", i, (char *) current->content);
 		temp = current;
 		current = current->next;
 		free(temp);
 		i++;
 	}
+
 	return (0);
 }
