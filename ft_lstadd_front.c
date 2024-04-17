@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 23:04:53 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/17 00:04:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/17 03:46:39 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!lst)
+		return ;
 	if (*lst != NULL)
 	{
 		new->next = *lst;
 		*lst = new;
 	}
-	else
-		*lst = new;
-
+	*lst = new;
 }
 
 int	main()
 {
-	t_list	*test_lista;
+	t_list	*test_lista = NULL;
 
 	test_lista = (t_list *) malloc (sizeof(t_list));
 	if (!test_lista)
@@ -67,7 +67,10 @@ int	main()
 	t_list	*node_to_add_front = (t_list *) malloc (sizeof(t_list));
 	if (!node_to_add_front)
 	{
-		free(node_to_add_front);
+		free(node01);
+		free(node02);
+		free(node03);
+		free(node04);
 		return (0);
 	}
 	node_to_add_front->content = "start here";
@@ -89,25 +92,22 @@ int	main()
 		i++;
 	}
 	// FREE MEMORY MAIN LIST "HERE" 
-	free(current);
+	//free(current);
 
+	// EXECUTE FUNCTION 
 	ft_lstadd_front(&test_lista, node_to_add_front);
-
 
 	printf("\nshow test_lista after call ft_lstadd_front\n");
 
 	current = test_lista;
-	temp = current;
 	i = 0;
 	while (current != NULL)
 	{
 		printf("node [%d] -> %s\n", i, current->content);
 		temp = current;
 		current = current->next;
+		free(temp);
 		i++;
 	}
-
-	free(current);
-
 	return (0);
 }
