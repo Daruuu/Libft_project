@@ -6,26 +6,26 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/20 14:51:29 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:07:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
 void    del(void *content)
 {
     free(content);
 }
-
+*/
 void    ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if (!lst && !del)
-    {
-        del(lst->content);
-        //free(lst);
-    }
+    //if (!lst && !del)
+        //return ;
+    del(lst->content);
+    free(lst);
 }
 
+/*
 int main()
 {
     t_list  *lista = NULL;
@@ -65,3 +65,4 @@ int main()
 
     return (0);
 }
+*/
