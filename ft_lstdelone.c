@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/19 21:39:06 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:51:29 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *))
     if (!lst && !del)
     {
         del(lst->content);
-        free(lst);
+        //free(lst);
     }
 }
 
@@ -47,21 +47,21 @@ int main()
     node05->next = NULL;
 
     lista = node01;
-
-    node01->next = node01;
-
+    node01->next = node02;
     node02->next = node03;
-
     node03->next = node04;
-
     node04->next = node05;
 
-    printf("size of lista: %d \n", ft_lstsize(lista));
+    int sizeList = ft_lstsize(lista);
+    printf("size of lista: %d \n", sizeList);
 
     printf("execute ft_lstdelone\n");
     ft_lstdelone(node02, del);
 
-    printf("size of lista: %d \n", ft_lstsize(lista));
+    sizeList = 0;
+    sizeList = ft_lstsize(lista);
+
+    printf("size of lista: %d \n", sizeList);
 
     return (0);
 }

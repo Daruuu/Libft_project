@@ -6,34 +6,33 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:13:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/19 21:19:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:38:15 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;
 
-	last_node = NULL;
 	if (!lst || !new)
 		return ;
-	if (*lst == NULL)
-		*lst = new;
-	while (last_node->next != NULL)
+	if (!*lst)
 	{
-		last_node = last_node->next;
+		*lst = new;
+		return ;
 	}
+	last_node = *lst;
+	while (last_node->next)
+		last_node = last_node->next;
 	last_node->next = new;
 	new->next = NULL;
 }
-*/
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/*
+void    ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list	*last_node;
+    t_list  *current;
 
     if (!lst || !new)
         return ;
@@ -42,11 +41,32 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
         *lst = new;
         return ;
     }
-    last_node = ft_lstlast(*lst);
-    last_node->next = new;
+    current = ft_lstlast(*lst);
+    current->next = new;
     new->next = NULL;
 }
+*/
+/*
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*current;
 
+	current = NULL;
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+    {
+        *lst = new;
+        return ;
+    }
+	while (current->next != NULL)
+    {
+		current = current->next;
+    }
+	current->next = new;
+	new->next = NULL;
+}
+*/
 /*
 void	free_list(t_list *head)
 {
@@ -61,6 +81,7 @@ void	free_list(t_list *head)
 		free(temp);
 	}
 }
+
 int	main()
 {
 	t_list	*lista;
