@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:50:29 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/21 21:04:51 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/21 23:29:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	del(void *content)
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*tmp_node;
+	t_list	*current;
 
 	if (!lst || !del)
 		return ;
 	while (*lst != NULL)
 	{
-		tmp_node = tmp_node->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp_node;
+		*lst = (*lst)->next;
+		//lst del one
+		current = *lst;
+		del(current);
 	}
-    *lst = NULL;
 }
 
 void	free_list(t_list *head)
@@ -61,15 +61,15 @@ int	main()
 
 	//asginar contenido a cada nodo
 
-	node01->content = "hello";
+	node01->content = "node01";
 	node01->next = NULL;
-	node02->content = "world";
+	node02->content = "node02";
 	node02->next = NULL;
-	node03->content = "this is";
+	node03->content = "node03";
 	node03->next = NULL;
-	node04->content = "a testing";
+	node04->content = "node04";
 	node04->next = NULL;
-	node05->content = "in C";
+	node05->content = "node05";
 	node05->next = NULL;
 
 	// CONSTRUIR LA LISTA
@@ -95,20 +95,22 @@ int	main()
 	}
 
 	// CALL FUNCTION 
-	ft_lstclear(&test_lista, del);
+	printf("\nCALL FUNCTION FT_LSTCLEAR\n");
+	ft_lstclear(&node03, del);
 
 	printf("\nshow test_lista after call ft_lstclear(): \n");
 
+	//current = NULL;
 	current = test_lista;
 	i = 0;
 	printf("\n");
 	while (current != NULL)
 	{
-	printf("Memory: %p node [%d]-> %s\n", current->content , i, (char *) current->content);
+		printf("Memory: %p node [%d]-> %s\n", current->content , i, (char *) current->content);
 		current = current->next;
 		i++;
 	}
-	free_list(test_lista);
 
+	free_list(test_lista);
 	return (0);
 }
