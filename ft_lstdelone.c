@@ -6,26 +6,25 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/20 21:07:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/21 14:55:38 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del (lst->content);
+	free(lst);
+}
 /*
 void    del(void *content)
 {
     free(content);
 }
-*/
-void    ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-    //if (!lst && !del)
-        //return ;
-    del(lst->content);
-    free(lst);
-}
 
-/*
 int main()
 {
     t_list  *lista = NULL;
@@ -53,16 +52,36 @@ int main()
     node04->next = node05;
 
     int sizeList = ft_lstsize(lista);
-    printf("size of lista: %d \n", sizeList);
+    printf("size of list before execute function: %d \n", sizeList);
 
-    printf("execute ft_lstdelone\n");
-    ft_lstdelone(node02, del);
+    printf("execute of ft_lstdelone():\n");
+    ft_lstdelone(node05, del);
 
+    //sizeList = ft_lstsize(lista);
+
+    printf("iterate through list again:\n");
+
+    t_list  *current = lista;
+    //node04->next = NULL;
     sizeList = 0;
-    sizeList = ft_lstsize(lista);
+    while (current != NULL)
+    {
+        printf("%s\n", (char *) current->content);
+        current = current->next;
+        sizeList++;
+    }
 
-    printf("size of lista: %d \n", sizeList);
+    //printf("size of list after execute function: %d \n", sizeList);
 
+    //sizeList = 0;
+    
+    while (lista != NULL)
+    {
+        t_list  *tmp = lista;
+        lista = lista->next;
+        ft_lstdelone(tmp, del);
+        //sizeList++;
+    }
     return (0);
 }
 */
