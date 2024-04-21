@@ -12,19 +12,19 @@
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (!lst || !del)
-		return ;
-	del (lst->content);
-	free(lst);
-}
-/*
 void    del(void *content)
 {
     free(content);
 }
 
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del (lst);
+}
+
+/*
 int main()
 {
     t_list  *lista = NULL;
@@ -40,7 +40,7 @@ int main()
     node02->next = NULL;
     node03->content = "node03";
     node03->next = NULL;
-    node04->content = "node03";
+    node04->content = "node04";
     node04->next = NULL;
     node05->content = "nuevo contenido";
     node05->next = NULL;
@@ -62,7 +62,7 @@ int main()
     printf("iterate through list again:\n");
 
     t_list  *current = lista;
-    //node04->next = NULL;
+    node04->next = NULL;
     sizeList = 0;
     while (current != NULL)
     {
@@ -74,14 +74,6 @@ int main()
     //printf("size of list after execute function: %d \n", sizeList);
 
     //sizeList = 0;
-    
-    while (lista != NULL)
-    {
-        t_list  *tmp = lista;
-        lista = lista->next;
-        ft_lstdelone(tmp, del);
-        //sizeList++;
-    }
     return (0);
 }
 */
