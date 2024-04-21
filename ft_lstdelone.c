@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:11:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/21 14:55:38 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:12:42 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ int main()
     int sizeList = ft_lstsize(lista);
     printf("size of list before execute function: %d \n", sizeList);
 
-    printf("execute of ft_lstdelone():\n");
     ft_lstdelone(node05, del);
-
-    //sizeList = ft_lstsize(lista);
 
     printf("iterate through list again:\n");
 
     t_list  *current = lista;
     node04->next = NULL;
+
     sizeList = 0;
     while (current != NULL)
     {
@@ -70,10 +68,9 @@ int main()
         current = current->next;
         sizeList++;
     }
+    printf("size of list after execute function: %d \n", sizeList);
+	free(lista);
 
-    //printf("size of list after execute function: %d \n", sizeList);
-
-    //sizeList = 0;
     return (0);
 }
 */
