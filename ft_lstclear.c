@@ -6,32 +6,34 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:50:29 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/21 23:29:10 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:21:27 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
 void	del(void *content)
 {
 	free(content);
 }
+*/
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;
 
-	if (!lst || !del)
+	if (!*lst)
 		return ;
-	while (*lst != NULL)
+	while (*lst)
 	{
-		*lst = (*lst)->next;
-		//lst del one
-		current = *lst;
-		del(current);
+		current = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = current;
 	}
+	*lst = NULL;
 }
-
+/*
 void	free_list(t_list *head)
 {
 	t_list	*current;
@@ -73,7 +75,7 @@ int	main()
 	node05->next = NULL;
 
 	// CONSTRUIR LA LISTA
-	test_lista->next = node01;
+	test_lista = node01;
 	node01->next = node02;
 	node02->next = node03;
 	node03->next = node04;
@@ -96,7 +98,7 @@ int	main()
 
 	// CALL FUNCTION 
 	printf("\nCALL FUNCTION FT_LSTCLEAR\n");
-	ft_lstclear(&node03, del);
+	ft_lstclear(&node04, del);
 
 	printf("\nshow test_lista after call ft_lstclear(): \n");
 
@@ -114,3 +116,4 @@ int	main()
 	free_list(test_lista);
 	return (0);
 }
+*/

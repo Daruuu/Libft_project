@@ -6,19 +6,36 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:53:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/06 10:40:39 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:28:32 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
+// clear list
+void    *f(void **lst)
+{
+    t_list  *current;
+    if (!*lst)
+        return (NULL);
+    current = *lst;
+    while (current)
+    {
+        current = current->next;
+    }
+
+}
+
+void    del(void *node)
+{
+    if (node)
+        free(node);
+}
+
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
     t_list  *new_list;
     t_list  *changed_element;
-
-    if (!lst || !*f || !del)
-        return (NULL);
 
     new_list = NULL;
     new_list = (t_list *) malloc(sizeof(t_list));
@@ -34,4 +51,11 @@ t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
         lst = lst->next;
     }
     return (new_list);
+}
+
+
+int main()
+{
+
+    return (0);
 }
