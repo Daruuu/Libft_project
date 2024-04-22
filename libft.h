@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/19 19:55:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:20:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct  s_list
     void            *content;
     struct s_list   *next;
 }           t_list;
+
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

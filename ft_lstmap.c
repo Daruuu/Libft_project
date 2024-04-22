@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:53:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/22 13:28:32 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:08:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-// clear list
+/*
 void    *f(void **lst)
 {
     t_list  *current;
@@ -21,41 +21,64 @@ void    *f(void **lst)
     current = *lst;
     while (current)
     {
-        current = current->next;
+        current = current->next; 
     }
-
+    free(current->content);
+    return(*lst);
 }
 
 void    del(void *node)
 {
     if (node)
         free(node);
+    return ;
 }
+*/
 
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
     t_list  *new_list;
-    t_list  *changed_element;
+    t_list  *current;
 
     new_list = NULL;
-    new_list = (t_list *) malloc(sizeof(t_list));
+    current = lst;
     while (lst)
     {
-        changed_element = ft_lstnew(lst->content);
-        if (!changed_element)
+        current = ft_lstnew(f(current->content)); 
+        if (!current)
         {
             ft_lstclear(&new_list, del);
             return (NULL);
         }
-        ft_lstadd_back(&new_list, changed_element);
+        ft_lstadd_back(&new_list, current);
         lst = lst->next;
     }
     return (new_list);
 }
+/*
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*changed_list;
+	t_list	*changed_elem;
 
+	changed_list = NULL;
+	while (lst)
+	{
+		changed_elem = ft_lstnew(f(lst->content));
+		if (!changed_elem)
+		{
+			ft_lstclear(&changed_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&changed_list, changed_elem);
+		lst = lst->next;
+	}
+	return (changed_list);
+}
 
 int main()
 {
 
     return (0);
 }
+*/
