@@ -10,7 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_list;
+	t_list	*current;
+
+	new_list = NULL;
+	current = lst;
+	while (lst)
+	{
+		current = ft_lstnew(f(current->content));
+		if (!current)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, current);
+		lst = lst->next;
+	}
+	return (new_list);
+}
+
+void	*f(void *content)
+{
+	int	*value;	
+	int	*result;
+
+    value = (int *)content;
+    int *result;
+    result = malloc(sizeof(int));
+    if (!result)
+        return (NULL);
+    *result = *value * 2;
+    return (result);
+
+}
 
 /*
 void    *f(void **lst)
@@ -35,26 +71,6 @@ void    del(void *node)
 }
 */
 
-t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-    t_list  *new_list;
-    t_list  *current;
-
-    new_list = NULL;
-    current = lst;
-    while (lst)
-    {
-        current = ft_lstnew(f(current->content)); 
-        if (!current)
-        {
-            ft_lstclear(&new_list, del);
-            return (NULL);
-        }
-        ft_lstadd_back(&new_list, current);
-        lst = lst->next;
-    }
-    return (new_list);
-}
 /*
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
