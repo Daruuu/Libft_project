@@ -6,12 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:13:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/22 12:55:39 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 10:44:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (*lst)
@@ -19,7 +20,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-/*
+*/
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;
@@ -31,14 +33,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	current = NULL;
 	current = *lst;
-	while (current != NULL)
+	while (current->next != NULL)
 		current = current->next;
 	current->next = new;
 	new->next = NULL;
 }
-
+/*
 void	free_list(t_list *head)
 {
 	t_list	*current;
@@ -55,15 +56,13 @@ void	free_list(t_list *head)
 
 int	main()
 {
-	t_list	*lista;
+	t_list	*lista = NULL;
 
 	t_list	*node1 = (t_list *) malloc(sizeof(t_list));
 	t_list	*node2 = (t_list *) malloc(sizeof(t_list));
 	t_list	*node3 = (t_list *) malloc(sizeof(t_list));
     t_list	*node4 = (t_list *) malloc(sizeof(t_list));
     t_list	*node5 = (t_list *) malloc(sizeof(t_list));
-
-	lista = NULL;
 
 	node1->content = "First";
 	node1->next = NULL;
@@ -96,7 +95,7 @@ int	main()
 	size = 0;
 	size = ft_lstsize(lista);
 	printf("length of lista after test is: %d\n", size);
-	free_list(lista);
+	//free_list(lista);
 
 	return (0);
 }

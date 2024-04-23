@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:35:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/23 09:50:09 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 10:35:33 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst)
-		lst = lst->next;
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
 	return (lst);
 }
 
