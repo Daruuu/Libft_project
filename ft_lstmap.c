@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:53:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/22 17:08:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 09:53:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
+/*
 void	*f(void *content)
 {
 	int	*value;	
@@ -48,20 +48,6 @@ void	*f(void *content)
 
 }
 
-/*
-void    *f(void **lst)
-{
-    t_list  *current;
-    if (!*lst)
-        return (NULL);
-    current = *lst;
-    while (current)
-    {
-        current = current->next; 
-    }
-    free(current->content);
-    return(*lst);
-}
 
 void    del(void *node)
 {

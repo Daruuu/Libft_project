@@ -6,20 +6,21 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:35:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/19 19:15:51 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 09:50:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    if (!lst)
-        return (NULL);
-    while (lst->next != NULL)
-        lst = lst->next;
-    return (lst);
+	if (!lst)
+		return (NULL);
+	while (lst)
+		lst = lst->next;
+	return (lst);
 }
+
 /*
 int main()
 {
@@ -52,7 +53,7 @@ int main()
     printf("last node: %s\n", last_node->content);
 
     //free(lista_test);
-    
+
     free(node01);
     free(node02);
     free(node03);

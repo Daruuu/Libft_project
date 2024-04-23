@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 23:04:53 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/20 20:59:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 09:42:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
+
 /*
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
@@ -89,7 +90,8 @@ int	main()
 	printf("\n");
 	while (current != NULL)
 	{
-	printf("Memory: %p node [%d] -> %s\n", current->content, i, (char *) current->content);
+	printf("Mem: %p node[%d] -> %s\n", current->content, i, 
+	(char *) current->content);
 		temp = current;
 		current = current->next;
 		i++;
@@ -116,7 +118,8 @@ int	main()
 	printf("\n");
 	while (current != NULL)
 	{
-	printf("Memory: %p node [%d]-> %s\n", current->content , i, (char *) current->content);
+	printf("Mem: %p node[%d]-> %s\n", current->content , i,
+			(char *) current->content);
 		current = current->next;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:50:29 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/22 12:21:27 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/23 09:45:19 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int	main()
 	printf("\n");
 	while (current != NULL)
 	{
-		printf("Memory: %p node [%d] -> %s\n", current->content, i, (char *) current->content);
+		printf("Memory: %p node [%d] -> %s\n", current->content, 
+		i, (char *) current->content);
 		temp = current;
 		current = current->next;
 		i++;
@@ -108,7 +109,8 @@ int	main()
 	printf("\n");
 	while (current != NULL)
 	{
-		printf("Memory: %p node [%d]-> %s\n", current->content , i, (char *) current->content);
+		printf("Memory: %p node [%d]-> %s\n", current->content , 
+				i, (char *) current->content);
 		current = current->next;
 		i++;
 	}
