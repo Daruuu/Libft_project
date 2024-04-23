@@ -34,7 +34,7 @@ all: 		$(NAME)
 $(NAME): 	$(OBJS)
 			$(LIB) $(NAME) $(OBJS)
 
-bonus:		$(OBJS) $(BONUS_OBJS)
+bonus:		$(BONUS_OBJS)
 			$(LIB) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
