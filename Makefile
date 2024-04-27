@@ -25,7 +25,6 @@ BONUS_SRCS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-# Metodo Implicito
 %.o:%.c 	$(HEADER) Makefile
 			$(CC) $(CFLAGS) -c $< -o $@
 
@@ -34,7 +33,7 @@ all: 		$(NAME)
 $(NAME): 	$(OBJS)
 			$(LIB) $(NAME) $(OBJS)
 
-bonus:		$(BONUS_OBJS)
+bonus:		$(OBJS) $(BONUS_OBJS)
 			$(LIB) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:

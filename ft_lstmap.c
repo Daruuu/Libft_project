@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:53:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/23 11:00:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:48:29 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,28 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
-	t_list	*current;
+	t_list	*element;
+	void	*tmp;
 
+	if (!lst)
+		return (0);
 	new_list = NULL;
 	while (lst != NULL)
 	{
-		current = ft_lstnew(f(lst->content));
-		if (!current)
+		tmp = f(lst->content);
+		element = ft_lstnew(tmp);
+		if (!element)
 		{
+			del(tmp);
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_list, current);
+		ft_lstadd_back(&new_list, element);
 		lst = lst->next;
 	}
 	return (new_list);
 }
+
 /*
 void	*f(void *content)
 {
@@ -46,7 +52,6 @@ void	*f(void *content)
     return (result);
 
 }
-
 
 void    del(void *node)
 {
@@ -77,9 +82,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (changed_list);
 }
 
-int main()
-{
-
-    return (0);
-}
 */

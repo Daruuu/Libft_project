@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 21:27:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/09/16 18:34:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/04/27 20:16:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ static int	ft_count_words(char const *s, char c)
 		}
 	}
 	return (count);
+}
+
+static char	**free_table(char **table, int i)
+{
+	while (i >= 0)
+		free(table[i--]);
+	free(table);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -70,10 +78,13 @@ int	main()
 	int			len_str;
 	int			i;
 
-	str = "Lorem Ipsum has been the ";
+	//str = "Lorem Ipsum has been the ";
 	c = ' ';
 	len_str = ft_strlen(str);
-	table = ft_split(str, c);
+	//table = ft_split(str, c);
+	//table = ft_split(str, c);
+	table = NULL;
+	table = ft_split("hello!", 32);
 
 	i = 0;
 	while (table[i])
@@ -82,7 +93,7 @@ int	main()
 		free(table[i]);
 		i++;
 	}
-	free(table);
+	//free(table);
 	return (0);
 }
 */
