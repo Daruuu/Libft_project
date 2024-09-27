@@ -6,33 +6,35 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:50:29 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/23 09:45:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/09/27 21:25:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
+
 void	del(void *content)
 {
 	free(content);
 }
-*/
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;
+	t_list	*next;
 
-	if (!*lst)
+	if (!lst || !del)
 		return ;
-	while (*lst)
+	current = *lst;
+	while (current)
 	{
-		current = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = current;
+		next = current->next;
+		del(current->content);
+		free(current);
+		current = next;
 	}
 	*lst = NULL;
 }
+
 /*
 void	free_list(t_list *head)
 {
@@ -50,72 +52,40 @@ void	free_list(t_list *head)
 
 int	main()
 {
-	t_list	*test_lista = NULL;
-
-	test_lista = (t_list *) malloc (sizeof(t_list));
-
 	// crear nodos
-	t_list	*node01 = (t_list *) malloc (sizeof(t_list));
-	t_list	*node02 = (t_list *) malloc (sizeof(t_list));
-	t_list	*node03 = (t_list *) malloc (sizeof(t_list));
-	t_list	*node04 = (t_list *) malloc (sizeof(t_list));
-	t_list	*node05 = (t_list *) malloc (sizeof(t_list));
+	t_list *lista = ft_lstnew(ft_strdup("100"));
+	t_list *node1 = ft_lstnew(ft_strdup("10"));
+	t_list *node2 = ft_lstnew(ft_strdup("25"));
+	t_list *node3 = ft_lstnew(ft_strdup("40"));
+	t_list *node4 = ft_lstnew(ft_strdup("75"));
 
-	//asginar contenido a cada nodo
+   	 //creamos lista
+	lista->next = node1;
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = node4;
 
-	node01->content = "node01";
-	node01->next = NULL;
-	node02->content = "node02";
-	node02->next = NULL;
-	node03->content = "node03";
-	node03->next = NULL;
-	node04->content = "node04";
-	node04->next = NULL;
-	node05->content = "node05";
-	node05->next = NULL;
-
-	// CONSTRUIR LA LISTA
-	test_lista = node01;
-	node01->next = node02;
-	node02->next = node03;
-	node03->next = node04;
-	node04->next = node05;
-
-	printf("show test_lista before call ft_lstadd_front:\n");
-
-	int	i = 0;
-	t_list	*current = test_lista;
-	t_list	*temp = NULL;
-
-	printf("\n");
-	while (current != NULL)
+	t_list *tmp = lista;
+	int i = 0;
+	while (tmp != NULL)
 	{
-		printf("Memory: %p node [%d] -> %s\n", current->content, 
-		i, (char *) current->content);
-		temp = current;
-		current = current->next;
+		printf("lista antes de clear[%d]: %s\n", i,(char *) tmp->content);
+		tmp = tmp->next;
 		i++;
 	}
+	//printf("head antes de clear: %s\n", lista->content);
+	//eliminar  nodo....
+	ft_lstclear(&node3, del);
 
-	// CALL FUNCTION 
-	printf("\nCALL FUNCTION FT_LSTCLEAR\n");
-	ft_lstclear(&node04, del);
-
-	printf("\nshow test_lista after call ft_lstclear(): \n");
-
-	//current = NULL;
-	current = test_lista;
+	t_list	*tmp2 = lista;
 	i = 0;
-	printf("\n");
-	while (current != NULL)
+    while (tmp2->next != NULL)
 	{
-		printf("Memory: %p node [%d]-> %s\n", current->content , 
-				i, (char *) current->content);
-		current = current->next;
+		printf("lista after clear[%d]: %s\n", i, (char *)tmp2->content);
+		tmp2 = tmp2->next;
 		i++;
-	}
-
-	free_list(test_lista);
-	return (0);
+    }
+	//ft_free(&lista);
+    return (0);
 }
 */

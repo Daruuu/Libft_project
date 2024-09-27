@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:13:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/27 19:59:15 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/09/27 19:10:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;
 
-	if (lst)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		if (*lst)
-		{
-			current = ft_lstlast(*lst);
-			current->next = new;
-		}
-		else
-			*lst = new;
+		*lst = new;
+		return ;
 	}
+	current = *lst;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = new;
+	new->next = NULL;
 }
-
 /*
 void	free_list(t_list *head)
 {

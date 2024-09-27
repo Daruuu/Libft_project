@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:36:45 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/23 09:39:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/09/27 21:28:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	t_list	*current;
+
+	current = lst;
 	if (!lst || !f)
 		return ;
-	while (lst)
+	while (current != NULL)
 	{
-		f(lst->content);
-		lst = lst->next;
+		f(current->content);
+		current = current->next;
 	}
 }
