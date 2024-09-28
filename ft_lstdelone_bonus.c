@@ -20,8 +20,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 		free(lst);
 	}
 }
-
 /*
+
 void    del(void *content)
 {
     free(content);
@@ -36,16 +36,16 @@ int main()
     t_list  *node04 = (t_list *) malloc(sizeof(t_list));
     t_list  *node05 = (t_list *) malloc(sizeof(t_list));
 
-    node01->content = "node01";
-    node01->next = NULL;
-    node02->content = "node02";
-    node02->next = NULL;
-    node03->content = "node03";
-    node03->next = NULL;
-    node04->content = "node04";
-    node04->next = NULL;
-    node05->content = "nuevo contenido";
-    node05->next = NULL;
+	node01->content = ft_strdup("node01");
+	node01->next = NULL;
+	node02->content = ft_strdup("node02");
+	node02->next = NULL;
+	node03->content = ft_strdup("node03");
+	node03->next = NULL;
+	node04->content = ft_strdup("node04");
+	node04->next = NULL;
+	node05->content = ft_strdup("nuevo contenido");
+	node05->next = NULL;
 
     lista = node01;
     node01->next = node02;
@@ -67,10 +67,10 @@ int main()
     while (current != NULL)
     {
         printf("%s\n", (char *) current->content);
+		sizeList++;
         current = current->next;
-        sizeList++;
     }
-    printf("size of list after execute function: %d \n", sizeList);
+    printf("size of list after delone() function: %d \n", sizeList);
 	free(lista);
 
     return (0);

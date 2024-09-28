@@ -19,6 +19,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
+
 /*
 void	free_list(t_list *head)
 {
@@ -36,8 +37,6 @@ void	free_list(t_list *head)
 
 int	main(void)
 {
-
-
 	// crear nodos
 	t_list	*node01 = (t_list *) malloc (sizeof(t_list));
 	t_list	*node02 = (t_list *) malloc (sizeof(t_list));
@@ -64,16 +63,13 @@ int	main(void)
 
 	int	i = 0;
 	t_list	*current = node01;
-	t_list	*temp = NULL;
 
 	printf("\n");
 	while (current != NULL)
 	{
-	printf("Mem: %p node[%d] -> %s\n", current->content, i, 
-	(char *) current->content);
-		temp = current;
-		current = current->next;
+		printf("Mem: %p node[%d] -> %s\n", current->content, i, (char *) current->content);
 		i++;
+		current = current->next;
 	}
 	// crear nuevo nodo para add front lista
 	t_list	*node_to_add_front = (t_list *) malloc (sizeof(t_list));
@@ -95,12 +91,10 @@ int	main(void)
 	printf("\n");
 	while (current != NULL)
 	{
-	printf("Mem: %p node[%d]-> %s\n", current->content , i,
-			(char *) current->content);
-		current = current->next;
+		printf("Mem: %p node[%d]-> %s\n", current->content , i, (char *) current->content);
 		i++;
+		current = current->next;
 	}
 	free_list(node01);
 	return (0);
-}
-*/
+}*/
