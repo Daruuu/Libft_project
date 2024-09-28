@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
+/*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 23:30:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/04/19 02:33:53 by dasalaza         ###   ########.fr       */
+/*   Created: 2024/04/09 14:13:52 by dasalaza          #+#    #+#             */
+/*   Updated: 2024/09/27 19:10:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*current;
 
-	i = 0;
-	while (lst != NULL)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		i++;
-		lst = lst->next;
+		*lst = new;
+		return ;
 	}
-	return (i);
+	current = *lst;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = new;
+	new->next = NULL;
 }
-
 /*
-void	free_lista(t_list *head)
+void	free_list(t_list *head)
 {
 	t_list	*current;
 	t_list	*temp;
@@ -48,6 +52,7 @@ int	main()
 	t_list	*node2 = (t_list *) malloc(sizeof(t_list));
 	t_list	*node3 = (t_list *) malloc(sizeof(t_list));
     t_list	*node4 = (t_list *) malloc(sizeof(t_list));
+    t_list	*node5 = (t_list *) malloc(sizeof(t_list));
 
 	node1->content = "First";
 	node1->next = NULL;
@@ -57,38 +62,30 @@ int	main()
 	node3->next = NULL;
     node4->content = "fourth";
     node4->next = NULL;
-	
+	node5->content = "five";
+	node5->next = NULL;
+
 	lista = node1;
-	//lista->next = node1;	// error comun
 	node1->next = node2;
 	node2->next = node3;
     node3->next = node4;
+    node4->next = node5;
 
 	// testing here
 	int	size = ft_lstsize(lista);
 	printf("length of lista is: %d\n", size);
 
-	// new node
-	t_list	*new_node = (t_list *) malloc(sizeof(t_list));
-	if (!new_node)
-	{
-		free_lista(lista);
-		return(0);
-	}
-	new_node->content = "new node";
-	new_node->next = NULL;
-	node4->next = new_node;
+	t_list	*add_final = (t_list *) malloc(sizeof(t_list));
+	add_final->content = "hello world";
+	add_final->next = NULL;
 
-	t_list	*current = lista;
+	printf("lst_add_back:\n");
+	ft_lstadd_back(&lista, add_final);
 
-	while (current != NULL)
-	{
-		printf("%s\n", (char *)current->content);
-		current = current->next;
-	}
+	size = 0;
 	size = ft_lstsize(lista);
-	printf("length of list after call functino is: %d\n", size);
-	free_lista(lista);
+	printf("length of lista after test is: %d\n", size);
+	//free_list(lista);
 
 	return (0);
 }
